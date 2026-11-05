@@ -7,8 +7,6 @@ int infected = 10;
 int recovered = 10;
 int day = 0;
 int total = 100;
-int newRecovered;
-int newInfected;
 double infectionRate = 0.20;
 double recoveryRate = 0.10;
 void showPopulation(int day, int susceptible, int infected, int recovered);
@@ -28,7 +26,7 @@ void showPopulation(int day, int susceptible, int infected, int recovered) {
 	cout << "Susceptible: " << susceptible << endl;
 	cout << "Infected: " << infected << endl;
 	cout << "Recovered: " << recovered << endl;
-	int total = susceptible + infected + recovered;
+	total = susceptible + infected + recovered;
 	cout << "Total: " << total << endl;
 }
 
@@ -59,8 +57,8 @@ void menu() {
 }
 
 void simulateDay() {
-	newInfected = infected * infectionRate;
-	newRecovered = infected * recoveryRate;
+	int newInfected = infected * infectionRate;
+	int newRecovered = infected * recoveryRate;
 	newInfected = min(newInfected, susceptible);
 	newRecovered = min(newRecovered, infected);
 	infected = floor(infected + newInfected - newRecovered);
